@@ -69,9 +69,9 @@ Lets take an example. The link that was requested by user is a link from list vi
 
 When TYPO3 will start to generate language menu it will build following links:
 
-* https://www.example.com/?id=10&tx_news_pi[news]=15&L=1&cHash=1234567890
-* https://www.example.com/?id=10&tx_news_pi[news]=15&L=2&cHash=1234567890
-* https://www.example.com/?id=10&tx_news_pi[news]=15&L=3&cHash=1234567890
+* ``https://www.example.com/?id=10&tx_news_pi[news]=15&L=1&cHash=1234567890``
+* ``https://www.example.com/?id=10&tx_news_pi[news]=15&L=2&cHash=1234567890``
+* ``https://www.example.com/?id=10&tx_news_pi[news]=15&L=3&cHash=1234567890``
 
 This is perfectly fine and what you wanted!
 
@@ -81,9 +81,9 @@ coming from you application. How it looks like then? Lets take an next example -
 
 The language menu will build following links:
 
-* https://www.example.com/?__lrre=1139234&L=1&cHash=1234567890
-* https://www.example.com/?__lrre=1139234&L=2&cHash=1234567890
-* https://www.example.com/?__lrre=1139234&L=3&cHash=1234567890
+* ``https://www.example.com/?__lrre=1139234&L=1&cHash=1234567890``
+* ``https://www.example.com/?__lrre=1139234&L=2&cHash=1234567890``
+* ``https://www.example.com/?__lrre=1139234&L=3&cHash=1234567890``
 
 This is what you would like to avoid. What are the downsides of such situation? Please read next chapter.
 
@@ -106,14 +106,14 @@ Each link created by typolink has its entry in realurl table ``tx_realurl_urldat
 exclude all possible query parameters with ``typolink.addQueryString.exclude`` then this table will be flooded and will
 make pressure on processor, database and database space.
 
-How can you prevent ``addQueryString flooding problems``?
+How can you prevent 'addQueryString flooding' problems?
 --------------------------------------------------------
 
 Install ext:urlguard. By default it has active ``typolink.addQueryString.includePluginsNamespaces`` which will exclude all
 parameters that does not fit into first level of Extbase plugins namespace.
 
 
-How can you prevent ``addQueryString flooding problems`` without ext:urlguard?
+How can you prevent 'addQueryString flooding' problems without ext:urlguard?
 ----------------------------------------------------------------------------
 
 TYPO3 offers ``typolink.addQueryString.exclude`` where you can try to make something impossible: exclude all parameters
