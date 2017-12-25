@@ -1,0 +1,2 @@
+# cat=general/enable/10; type=boolean; label=LLL:EXT:urlguard/Resources/Private/Language/locallang_be.xlf:extmng.enableXclassForContentObjectRenderer
+enableXclassForContentObjectRenderer = 0

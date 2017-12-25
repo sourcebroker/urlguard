@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-12-22T11:47:18Z" product-name="urlguard">
+		<header/>
+		<body>
+			<trans-unit id="extmng.enableXclassForContentObjectRenderer" xml:space="preserve">
+				<source>enableXclassForContentObjectRenderer: Enable xclass for ContentObjectRenderer to allow support for 'include' and 'includePluginsNamespaces' options.
+			</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,41 @@
+--- typo3/sysext/frontend/Classes/ContentObject/ContentObjectRenderer.php	2017-04-18 18:22:57.000000000 +0200
++++ typo3/sysext/frontend/Classes/ContentObject/ContentObjectRenderer1.php	2017-12-25 22:05:53.000000000 +0100
+@@ -6537,7 +6537,37 @@
+ 			default:
+ 				$currentQueryArray = GeneralUtility::explodeUrl2Array($this->getEnvironmentVariable('QUERY_STRING'), TRUE);
+ 		}
+-		if ($conf['exclude']) {
++		$allowedUrlNamespaces = [];
++		// By default option includePluginsNamespaces is active if not set.
++		if (!isset($conf['includePluginsNamespaces'])
++			|| !empty($conf['includePluginsNamespaces'])) {
++			foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions'] as $extensionName => $settings) {
++				if (!empty($settings['plugins'])) {
++					$extensionName = str_replace(' ', '', ucwords(str_replace('_', ' ', $extensionName)));
++					foreach ($settings['plugins'] as $pluginName => $pluginSettings) {
++						$allowedUrlNamespaces[] = 'tx_' . strtolower($extensionName . '_' . $pluginName);
++					}
++				}
++			}
++		}
++		if (!empty(trim($conf['include']))) {
++			$allowedUrlNamespaces = array_merge(
++				$allowedUrlNamespaces,
++				GeneralUtility::trimExplode(',', $conf['include'])
++			);
++		}
++		if (!empty($allowedUrlNamespaces)) {
++			$conf['exclude'] = implode(',',
++				array_unique(array_merge(
++					GeneralUtility::trimExplode(',', $conf['exclude']),
++					array_filter(
++						array_flip($currentQueryArray),
++						function ($getVarNamespace) use ($allowedUrlNamespaces) {
++							return !in_array($getVarNamespace, $allowedUrlNamespaces);
++						}
++					))));
++		}
++        if ($conf['exclude']) {
+ 			$exclude = str_replace(',', '&', $conf['exclude']);
+ 			$exclude = GeneralUtility::explodeUrl2Array($exclude, TRUE);
+ 			// never repeat id
