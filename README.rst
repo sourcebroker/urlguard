@@ -37,11 +37,11 @@ Installation
 ------------
 
 1) Use composer or download by Extension Manager.
- ::
+   ::
 
- composer require sourcebroker/urlguard
+   composer require sourcebroker/urlguard
 
-2) Go to Extension Manager, find `Urlguard` choose Options and set 'enableXclassForContentObjectRenderer'.
+2) Go to Extension Manager, find `Urlguard` choose Options and set `enableXclassForContentObjectRenderer`.
 
 3) Make backup of tables `tx_realurl_urldata`, `tx_realurl_uniqalias_cache_map` and then truncate them.
 
@@ -51,7 +51,7 @@ Installation
 
 
 Note! It may happen that one of your installed extension is already overwriting class
-\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer. In that case you may expect that either `urlguard` will not
+`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`. In that case you may expect that either `urlguard` will not
 work or the second extension that overwrites class ContentObjectRenderer will not work. That depends which extension
 is loaded last - the last one overwrites. If you are experiencing this situation then you can apply patch needed by
 ext:urlguard directly to core class ContentObjectRenderer. Look for patches in Resources/Private/Patches and apply
@@ -68,6 +68,7 @@ Lets take an example. The link that was requested by user is a link from list vi
 `https://www.exmaple.com/?id=10&tx_news_pi[news]=15&cHash=1234567890`
 
 When TYPO3 will start to generate language menu it will build following links:
+
 * https://www.exmaple.com/?id=10&tx_news_pi[news]=15&L=1&cHash=1234567890
 * https://www.exmaple.com/?id=10&tx_news_pi[news]=15&L=2&cHash=1234567890
 * https://www.exmaple.com/?id=10&tx_news_pi[news]=15&L=3&cHash=1234567890
@@ -79,6 +80,7 @@ coming from you application. How it looks like then? Lets take an next example -
 `https://www.exmaple.com/?__lrre=1139234`
 
 The language menu will build following links:
+
 * https://www.exmaple.com/?__lrre=1139234&L=1&cHash=1234567890
 * https://www.exmaple.com/?__lrre=1139234&L=2&cHash=1234567890
 * https://www.exmaple.com/?__lrre=1139234&L=3&cHash=1234567890
