@@ -66,7 +66,7 @@ class ContentObjectRenderer extends \TYPO3\CMS\Frontend\ContentObject\ContentObj
                 GeneralUtility::trimExplode(',', $conf['include'])
             );
         }
-        if(!empty($allowedUrlNamespaces)) {
+        if (!empty($allowedUrlNamespaces)) {
             $conf['exclude'] = implode(',',
                 array_unique(array_merge(
                     GeneralUtility::trimExplode(',', $conf['exclude']),
