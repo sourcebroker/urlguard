@@ -45,7 +45,7 @@ Installation
 
 3) Make backup of tables ``tx_realurl_urldata``, ``tx_realurl_uniqalias_cache_map`` and then truncate them.
 
-4) In browser open link https://www.example.com/?asd=1 and look for entries generated in table ``tx_realurl_urldata``.
+4) In browser open link ``https://www.example.com/?asd=1`` and look for entries generated in table ``tx_realurl_urldata``.
    If you have language menu and use ``addQueryString`` you should NOT see there any entry with ``asd``. If you still
    see ``asd`` it means ext:urlguard is not working. In that case look for note below.
 
