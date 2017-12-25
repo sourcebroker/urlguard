@@ -10,7 +10,8 @@ TYPO3 Extension ``urlguard``
 .. image:: https://poser.pugx.org/sourcebroker/urlguard/license
     :target: https://packagist.org/packages/sourcebroker/urlguard
 
-| &nbsp;
+|
+
 
 .. contents:: :local:
 
