@@ -1,7 +1,7 @@
 TYPO3 Extension ``urlguard``
 ############################
 
-| .. image:: https://styleci.io/repos/115223812/shield?branch=master
+  .. image:: https://styleci.io/repos/115223812/shield?branch=master
       :target: https://styleci.io/repos/115223812
 
   .. image:: https://poser.pugx.org/sourcebroker/urlguard/v/stable
