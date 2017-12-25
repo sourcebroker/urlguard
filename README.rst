@@ -1,14 +1,14 @@
 TYPO3 Extension ``urlguard``
 ############################
 
-| .. image:: https://styleci.io/repos/115223812/shield?branch=master
-|     :target: https://styleci.io/repos/115223812
+|  .. image:: https://styleci.io/repos/115223812/shield?branch=master
+|      :target: https://styleci.io/repos/115223812
 |
-| .. image:: https://poser.pugx.org/sourcebroker/urlguard/v/stable
-|     :target: https://packagist.org/packages/sourcebroker/urlguard
+|  .. image:: https://poser.pugx.org/sourcebroker/urlguard/v/stable
+|      :target: https://packagist.org/packages/sourcebroker/urlguard
 |
-| .. image:: https://poser.pugx.org/sourcebroker/urlguard/license
-|     :target: https://packagist.org/packages/sourcebroker/urlguard
+|  .. image:: https://poser.pugx.org/sourcebroker/urlguard/license
+|      :target: https://packagist.org/packages/sourcebroker/urlguard
 
 .. contents:: :local:
 
