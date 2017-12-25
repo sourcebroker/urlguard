@@ -1,22 +1,22 @@
 TYPO3 Extension ``urlguard``
-============================
+############################
 
-.. image:: https://styleci.io/repos/115223812/shield?branch=master
-    :target: https://styleci.io/repos/115223812
 
-.. image:: https://poser.pugx.org/sourcebroker/urlguard/v/stable
-    :target: https://packagist.org/packages/sourcebroker/urlguard
+    .. image:: https://styleci.io/repos/115223812/shield?branch=master
+        :target: https://styleci.io/repos/115223812
 
-.. image:: https://poser.pugx.org/sourcebroker/urlguard/license
-    :target: https://packagist.org/packages/sourcebroker/urlguard
+    .. image:: https://poser.pugx.org/sourcebroker/urlguard/v/stable
+        :target: https://packagist.org/packages/sourcebroker/urlguard
 
-|
+    .. image:: https://poser.pugx.org/sourcebroker/urlguard/license
+        :target: https://packagist.org/packages/sourcebroker/urlguard
+
 |
 
 .. contents:: :local:
 
 What does it do?
-----------------
+****************
 
 This extension is adding two new options for ``typolink.addQueryString`` setting. This new options allow to define
 what query parameters will be passed to newly created typolinks.
@@ -35,7 +35,7 @@ code after this extension installation. You will be safe by default!
 
 
 Installation
-------------
+************
 
 1) Use composer or download by Extension Manager.
    ::
@@ -60,7 +60,7 @@ them manually or automatically with composer package ``cweagans/composer-patches
 
 
 Background
-----------
+**********
 
 Usually when you build language menu (or page browsing) then you want to use ``typolink.addQueryString`` to pass all
 parameters that are set on query so the parameters are the same for other languages or for next pages in page browser.
@@ -89,10 +89,10 @@ The language menu will build following links:
 This is what you would like to avoid. What are the downsides of such situation? Please read next chapter.
 
 Flooding problems of addQueryString
------------------------------------
+***********************************
 
 Flooding of table cf_cache_pages
-++++++++++++++++++++++++++++++++
+================================
 
 When typolink is used with addQueryString option activated there is no easy way to exclude all possible query parameters
 with ``typolink.addQueryString.exclude`` because we can not predict all the params used by bots. This means that typolink
@@ -101,21 +101,21 @@ will traverse those links then each of such link will build new cache entry in `
 pressure on processor, database and database space.
 
 Flooding of table tx_realurl_urldata
-++++++++++++++++++++++++++++++++++++
+====================================
 
 Each link created by typolink has its entry in realurl table ``tx_realurl_urldata``. Because there is no way to effectively
 exclude all possible query parameters with ``typolink.addQueryString.exclude`` then this table will be flooded and will
 make pressure on processor, database and database space.
 
 How can you prevent 'addQueryString flooding' problems?
---------------------------------------------------------
+*******************************************************
 
 Install ext:urlguard. By default it has active ``typolink.addQueryString.includePluginsNamespaces`` which will exclude all
 parameters that does not fit into first level of Extbase plugins namespace.
 
 
 How can you prevent 'addQueryString flooding' problems without ext:urlguard?
-----------------------------------------------------------------------------
+****************************************************************************
 
 TYPO3 offers ``typolink.addQueryString.exclude`` where you can try to make something impossible: exclude all parameters
 that will be used by bots. You can even set them globally in ``$GLOBALS['TYPO3_CONF_VARS']['FE']['cHashExcludedParameters']``
@@ -130,12 +130,12 @@ This is what ext:urlguard is doing.
 
 
 Known problems
---------------
+**************
 
 None.
 
 
 Changelog
----------
+*********
 
 See https://github.com/sourcebroker/urlguard/blob/master/CHANGELOG.rst
