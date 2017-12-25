@@ -11,7 +11,7 @@ TYPO3 Extension ``urlguard``
     :target: https://packagist.org/packages/sourcebroker/urlguard
 
 |
-
+|
 
 .. contents:: :local:
 
