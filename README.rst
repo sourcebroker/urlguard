@@ -116,11 +116,12 @@ How can you prevent 'addQueryString flooding' problems without ext:urlguard?
 
 TYPO3 offers ``typolink.addQueryString.exclude`` where you can try to make something impossible: exclude all parameters
 that will be used by bots. You can even set them globally in ``$GLOBALS['TYPO3_CONF_VARS']['FE']['cHashExcludedParameters']``
-(the defaults are: 'L, pk_campaign, pk_kwd, utm_source, utm_medium, utm_campaign, utm_term, utm_content') but still -
-you can only predict all the parameters used by bots.
+(the defaults are: 'L, pk_campaign, pk_kwd, utm_source, utm_medium, utm_campaign, utm_term, utm_content').
 
 The same with ext:realurl which allows you to set ``cache/ignoredGetParametersRegExp`` (in order to avoid 'flooding of
 table tx_realurl_urldata').
+
+The problem is: **you can not predict all the parameters used by bots**.
 
 The only 100% solution is to not use blacklisting of parameters (exclude) but whitelisting of parameters (include).
 This is what ext:urlguard is doing.
