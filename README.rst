@@ -28,7 +28,7 @@ created typolink.
 In the background those both options check for all query parameter that does not exists on ``typolink.addQueryString.include``,
 ``typolink.addQueryString.includePluginsNamespaces`` and if so then adds them to ``addQueryString.exclude`` list.
 
-If you are unsure if you need those options then read :ref:`Background` and :ref:`Flooding problems of addQueryString`.
+If you are unsure if you need those options then read `Background`_ and `Flooding problems of addQueryString`_.
 
 Because ``addQueryString.includePluginsNamespaces`` is enabled by default then you do not need to change your TypoScript
 code after this extension installation. You will be safe from flooding by default!
