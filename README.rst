@@ -118,7 +118,7 @@ How can you prevent 'addQueryString flooding' problems without ext:urlguard?
 ****************************************************************************
 
 TYPO3 offers ``typolink.addQueryString.exclude`` where you can try to exclude all parameters that should not be passed
-when creating new typolink. You can set them also globally in ``$GLOBALS['TYPO3_CONF_VARS']['FE']['cHashExcludedParameters']``.
+when creating new typolink. You can set them also globally in ``$GLOBALS['TYPO3_CONF_VARS']['FE']['cHashExcludedParameters']``
 which by default is set to : ``L, pk_campaign, pk_kwd, utm_source, utm_medium, utm_campaign, utm_term, utm_content``.
 
 The same with ext:realurl which allows you to set ``cache/ignoredGetParametersRegExp`` (in order to avoid 'flooding of
