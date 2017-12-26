@@ -15,20 +15,23 @@ TYPO3 Extension ``urlguard``
 What does it do?
 ****************
 
-This extension is adding two new options for ``typolink.addQueryString`` setting. This new options allow to define
+This extension adds two new options for ``typolink.addQueryString`` setting. This new options allow to define
 what query parameters will be passed to newly created typolinks.
 
-First option is ``typolink.addQueryString.include`` (empty by default). All query parameters that does not exist on this
-list will be not passed to newly created typolink.
+First option is ``typolink.addQueryString.include`` (string, comma separated - empty by default). All query parameters
+that does not exist on this list will be not passed to newly created typolink.
 
-Second option is ``typolink.addQueryString.includePluginsNamespaces`` (set by default to true). If enabled then all query
-parameters that does not fit into first level of Extbase plugins namespace will be not passed to newly created typolink.
+Second option is ``typolink.addQueryString.includePluginsNamespaces`` (boolean - set by default to true). If enabled
+then all query parameters that does not fit into first level of Extbase plugins namespace will be not passed to newly
+created typolink.
 
 In the background those both options check for all query parameter that does not exists on ``typolink.addQueryString.include``,
 ``typolink.addQueryString.includePluginsNamespaces`` and if so then adds them to ``addQueryString.exclude`` list.
 
+If you are unsure if you need those options then read :ref:`Background` and :ref:`Flooding problems of addQueryString`.
+
 Because ``addQueryString.includePluginsNamespaces`` is enabled by default then you do not need to change your TypoScript
-code after this extension installation. You will be safe by default!
+code after this extension installation. You will be safe from flooding by default!
 
 
 Installation
@@ -107,19 +110,20 @@ make pressure on processor, database and database space.
 How can you prevent 'addQueryString flooding' problems?
 *******************************************************
 
-Install ext:urlguard. By default it has active ``typolink.addQueryString.includePluginsNamespaces`` which will exclude all
-parameters that does not fit into first level of Extbase plugins namespace.
+Install ext:urlguard. By default it has active ``typolink.addQueryString.includePluginsNamespaces`` which will exclude
+all parameters that does not fit into first level of Extbase plugins namespace.
 
 
 How can you prevent 'addQueryString flooding' problems without ext:urlguard?
 ****************************************************************************
 
-TYPO3 offers ``typolink.addQueryString.exclude`` where you can try to make something impossible: exclude all parameters
-that will be used by bots. You can even set them globally in ``$GLOBALS['TYPO3_CONF_VARS']['FE']['cHashExcludedParameters']``
-(the defaults are: 'L, pk_campaign, pk_kwd, utm_source, utm_medium, utm_campaign, utm_term, utm_content').
+TYPO3 offers ``typolink.addQueryString.exclude`` where you can try to exclude all parameters that should not be passed
+when creating new typolink. You can set them also globally in ``$GLOBALS['TYPO3_CONF_VARS']['FE']['cHashExcludedParameters']``.
+which by default is set to : ``L, pk_campaign, pk_kwd, utm_source, utm_medium, utm_campaign, utm_term, utm_content``.
 
 The same with ext:realurl which allows you to set ``cache/ignoredGetParametersRegExp`` (in order to avoid 'flooding of
-table tx_realurl_urldata').
+table tx_realurl_urldata'). The default for ``cache/ignoredGetParametersRegExp`` is
+``/^(?:gclid|utm_(?:source|medium|campaign|term|content)|pk_campaign|pk_kwd|TSFE_ADMIN_PANEL.*)$/',``
 
 The problem is: **you can not predict all the parameters used by bots**.
 
