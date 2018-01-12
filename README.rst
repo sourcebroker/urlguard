@@ -44,11 +44,9 @@ Installation
 
 2) Go to Extension Manager, find ``Urlguard`` choose Options and set ``enableXclassForContentObjectRenderer``.
 
-3) Make backup of tables ``tx_realurl_urldata``, ``tx_realurl_uniqalias_cache_map`` and then truncate them.
-
-4) In browser open link ``https://www.example.com/?asd=1`` and look for entries generated in table ``tx_realurl_urldata``.
-   If you have language menu and use ``addQueryString`` you should NOT see there any entry with ``asd``. If you still
-   see ``asd`` it means ext:urlguard is not working. In that case look for note below.
+3) In browser open link ``https://www.example.com/?asd=1`` and look for last entries generated in table
+   ``tx_realurl_urldata``. If you have language menu and use ``addQueryString`` you should NOT see there any entry
+   with ``asd``. If you still see ``asd`` it means ext:urlguard is not working. In that case look for note below.
 
 
 Note! It may happen that one of your installed extension is already overwriting class
@@ -78,13 +76,13 @@ This is perfectly fine and what you wanted!
 
 Unfortunately the reality is that bots are permanently hitting your website with very strange url parameters that are not
 coming from you application. How it looks like then? Lets take an next example - bot hits your website with:
-``https://www.example.com/?__lrre=1139234``
+``https://www.example.com/?__asd=1139234``
 
 The language menu will build following links:
 
-* ``https://www.example.com/?__lrre=1139234&L=1&cHash=1234567890``
-* ``https://www.example.com/?__lrre=1139234&L=2&cHash=1234567890``
-* ``https://www.example.com/?__lrre=1139234&L=3&cHash=1234567890``
+* ``https://www.example.com/?__asd=1139234&L=1&cHash=1234567890``
+* ``https://www.example.com/?__asd=1139234&L=2&cHash=1234567890``
+* ``https://www.example.com/?__asd=1139234&L=3&cHash=1234567890``
 
 This is what you would like to avoid. What are the downsides of such situation? Please read next chapter.
 
@@ -118,14 +116,7 @@ How can you prevent 'addQueryString flooding' problems without ext:urlguard?
 ****************************************************************************
 
 TYPO3 offers ``typolink.addQueryString.exclude`` where you can try to exclude all parameters that should not be passed
-when creating new typolink. You can set them also globally in ``$GLOBALS['TYPO3_CONF_VARS']['FE']['cHashExcludedParameters']``
-which by default is set to : ``L, pk_campaign, pk_kwd, utm_source, utm_medium, utm_campaign, utm_term, utm_content``.
-
-The same with ext:realurl which allows you to set ``cache/ignoredGetParametersRegExp`` (in order to avoid 'flooding of
-table tx_realurl_urldata'). The default for ``cache/ignoredGetParametersRegExp`` is
-``/^(?:gclid|utm_(?:source|medium|campaign|term|content)|pk_campaign|pk_kwd|TSFE_ADMIN_PANEL.*)$/',``
-
-The problem is: **you can not predict all the parameters used by bots**.
+when creating new typolink. The problem is: **you can not predict all the parameters used by bots**.
 
 The only 100% solution is to not use blacklisting of parameters (exclude) but whitelisting of parameters (include).
 This is what ext:urlguard is doing.
