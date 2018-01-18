@@ -63,10 +63,10 @@ Background
 Usually when you build language menu (or page browsing) then you want to use ``typolink.addQueryString`` to pass all
 parameters that are set on query so the parameters are the same for other languages or for next pages in page browser.
 
-Lets take an example. The link that was requested by user is a link from list view of newses:
+Lets take an example. The link that was requested by user is a link to single view of news:
 ``https://www.example.com/?id=10&tx_news_pi[news]=15&cHash=1234567890``
 
-When TYPO3 will start to generate language menu it will build following links:
+When TYPO3 will start to generate language menu it will build following links adding L parameter:
 
 * ``https://www.example.com/?id=10&tx_news_pi[news]=15&L=1&cHash=1234567890``
 * ``https://www.example.com/?id=10&tx_news_pi[news]=15&L=2&cHash=1234567890``
