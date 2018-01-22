@@ -1,6 +1,17 @@
 Changelog
 ---------
 
+0.2.0
+~~~~~
+1) Fix wrong array transformation.
+2) Use ::class operator to get class name.
+3) Change TYPO3 compatibility to 7.6.0-9.0.99
+4) Update ext_emconf.php ext version.
+
+0.1.3
+~~~~~
+1) Improve docs.
+
 0.1.2
 ~~~~~
 1) Update ext_emconf.php ext version.

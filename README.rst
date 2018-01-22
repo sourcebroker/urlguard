@@ -56,6 +56,7 @@ is loaded last - the last one overwrites. If you are experiencing this situation
 ext:urlguard directly to core class ContentObjectRenderer. Look for patches in ``Resources/Private/Patches`` and apply
 them manually or automatically with composer package ``cweagans/composer-patches``.
 
+Note! For TYPO3 6.2 you can apply patch from Resources/Private/Patches/ContentObjectRenderer_TYPO3_6.2.patch
 
 Background
 **********

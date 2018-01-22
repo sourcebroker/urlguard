@@ -4,7 +4,7 @@ $EM_CONF[$_EXTKEY] = [
     'title' => 'URL Guard',
     'description' => 'Adds support for typolink addQueryString to allow to include only specific url vars.',
     'category' => 'services',
-    'version' => '0.1.2',
+    'version' => '0.2.0',
     'state' => 'beta',
     'uploadFolder' => false,
     'clearCacheOnLoad' => true,
@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = [
         [
             'depends' =>
                 [
-                    'typo3' => '6.2.0-9.0.99',
+                    'typo3' => '7.6.0-9.0.99',
                 ],
             'conflicts' =>
                 [
