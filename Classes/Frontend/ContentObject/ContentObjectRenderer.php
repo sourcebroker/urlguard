@@ -71,7 +71,7 @@ class ContentObjectRenderer extends \TYPO3\CMS\Frontend\ContentObject\ContentObj
                 array_unique(array_merge(
                     GeneralUtility::trimExplode(',', $conf['exclude']),
                     array_filter(
-                        array_flip($currentQueryArray),
+                        array_keys($currentQueryArray),
                         function ($getVarNamespace) use ($allowedUrlNamespaces) {
                             return !in_array($getVarNamespace, $allowedUrlNamespaces);
                         }
