@@ -1,6 +1,10 @@
 Changelog
 ---------
 
+0.2.1
+~~~~~
+1) Add missing aliasing for ArrayUtility.
+
 0.2.0
 ~~~~~
 1) Fix wrong array transformation.

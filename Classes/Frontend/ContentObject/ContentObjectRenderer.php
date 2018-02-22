@@ -15,6 +15,7 @@ namespace SourceBroker\Urlguard\Frontend\ContentObject;
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 
 class ContentObjectRenderer extends \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
 {
