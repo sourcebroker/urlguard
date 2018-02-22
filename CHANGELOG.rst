@@ -4,6 +4,7 @@ Changelog
 0.2.1
 ~~~~~
 1) Add missing aliasing for ArrayUtility.
+2) Update ext_emconf.php ext version.
 
 0.2.0
 ~~~~~
