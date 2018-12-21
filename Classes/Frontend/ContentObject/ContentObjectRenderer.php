@@ -79,11 +79,12 @@ class ContentObjectRenderer extends \TYPO3\CMS\Frontend\ContentObject\ContentObj
                     ))));
         }
         if ($conf['exclude']) {
-            $exclude = str_replace(',', '&', $conf['exclude']);
-            $exclude = GeneralUtility::explodeUrl2Array($exclude, true);
+            $excludeString = str_replace(',', '&', $conf['exclude']);
+            $excludedQueryParts = [];
+            parse_str($excludeString, $excludedQueryParts);
             // never repeat id
             $exclude['id'] = 0;
-            $newQueryArray = ArrayUtility::arrayDiffAssocRecursive($currentQueryArray, $exclude);
+            $newQueryArray = ArrayUtility::arrayDiffAssocRecursive($currentQueryArray, $excludedQueryParts);
         } else {
             $newQueryArray = $currentQueryArray;
         }
