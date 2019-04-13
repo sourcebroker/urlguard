@@ -17,7 +17,7 @@ namespace SourceBroker\Urlguard\Frontend\ContentObject;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 
-class ContentObjectRenderer extends \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
+class ContentObjectRenderer87 extends \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
 {
     /**
      * Gets the query arguments and assembles them for URLs.
