@@ -1,6 +1,11 @@
 Changelog
 ---------
 
+1.0.0
+~~~~~
+1) Add support for TYPO3 9.5
+2) Update ext_emconf.php ext version.
+
 0.2.1
 ~~~~~
 1) Add missing aliasing for ArrayUtility.

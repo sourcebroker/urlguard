@@ -44,9 +44,9 @@ Installation
 
 2) Go to Extension Manager, find ``Urlguard`` choose Options and set ``enableXclassForContentObjectRenderer``.
 
-3) In browser open link ``https://www.example.com/?asd=1`` and look for last entries generated in table
-   ``tx_realurl_urldata``. If you have language menu and use ``addQueryString`` you should NOT see there any entry
-   with ``asd``. If you still see ``asd`` it means ext:urlguard is not working. In that case look for note below.
+3) Clear TYPO3 frontend cache. In browser open link ``https://www.example.com/?asd=1`` and look for the links builded
+   by language menu. You should not see links like ``?asd=1&cHash=1234567890``. If you still see
+   ``?asd=1&cHash=1234567890`` it means ext:urlguard is not working. In that case look for note below.
 
 
 Note! It may happen that one of your installed extension is already overwriting class
@@ -99,8 +99,8 @@ will generate links containing valid cHash but with bot's params that are not su
 will traverse those links then each of such link will build new cache entry in ``cf_cache_pages`` table. This means
 pressure on processor, database and database space.
 
-Flooding of table tx_realurl_urldata
-====================================
+Flooding of table tx_realurl_urldata (not longer valid for TYPO3 9.5)
+=====================================================================
 
 Each link created by typolink has its entry in realurl table ``tx_realurl_urldata``. Because there is no way to effectively
 exclude all possible query parameters with ``typolink.addQueryString.exclude`` then this table will be flooded and will

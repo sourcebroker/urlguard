@@ -1,0 +1,39 @@
+--- Classes/ContentObject/ContentObjectRenderer.php	2019-03-04 21:25:08.000000000 +0100
++++ Classes/ContentObject/ContentObjectRenderer.php	2019-04-13 17:35:07.000000000 +0200
+@@ -5877,6 +5877,36 @@
+                 $currentQueryArray = [];
+                 parse_str($this->getEnvironmentVariable('QUERY_STRING'), $currentQueryArray);
+         }
++        $allowedUrlNamespaces = [];
++        // By default option includePluginsNamespaces is active if not set.
++        if (!isset($conf['includePluginsNamespaces'])
++            || !empty($conf['includePluginsNamespaces'])) {
++            foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions'] as $extensionName => $settings) {
++                if (!empty($settings['plugins'])) {
++                    $extensionName = str_replace(' ', '', ucwords(str_replace('_', ' ', $extensionName)));
++                    foreach ($settings['plugins'] as $pluginName => $pluginSettings) {
++                        $allowedUrlNamespaces[] = 'tx_' . strtolower($extensionName . '_' . $pluginName);
++                    }
++                }
++            }
++        }
++        if (!empty(trim($conf['include']))) {
++            $allowedUrlNamespaces = array_merge(
++                $allowedUrlNamespaces,
++                GeneralUtility::trimExplode(',', $conf['include'])
++            );
++        }
++        if (!empty($allowedUrlNamespaces)) {
++            $conf['exclude'] = implode(',',
++                array_unique(array_merge(
++                    GeneralUtility::trimExplode(',', $conf['exclude']),
++                    array_filter(
++                        array_keys($currentQueryArray),
++                        function ($getVarNamespace) use ($allowedUrlNamespaces) {
++                            return !in_array($getVarNamespace, $allowedUrlNamespaces);
++                        }
++                    ))));
++        }
+         if ($conf['exclude'] ?? false) {
+             $excludeString = str_replace(',', '&', $conf['exclude']);
+             $excludedQueryParts = [];
