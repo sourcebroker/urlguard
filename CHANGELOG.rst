@@ -1,6 +1,10 @@
 Changelog
 ---------
 
+1.0.2
+~~~~~
+1) TER autoupload test
+
 1.0.1
 ~~~~~
 1) Fix TYPO3 9.5 version in composer.json
