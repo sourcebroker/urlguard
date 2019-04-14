@@ -3,6 +3,7 @@ language: php
 branches:
   only:
     - master
+    - /^([0-9]+\.){1,2}(x|[0-9]+)$/
 
 notifications:
   email:
