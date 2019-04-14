@@ -1,6 +1,18 @@
 Changelog
 ---------
 
+1.0.5
+~~~~~
+1) Change stability to "stable".
+
+1.0.4
+~~~~~
+1) TER autoupload test
+
+1.0.3
+~~~~~
+1) TER autoupload test
+
 1.0.2
 ~~~~~
 1) TER autoupload test
