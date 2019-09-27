@@ -15,6 +15,7 @@ namespace SourceBroker\Urlguard\Frontend\ContentObject;
  */
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 
 class ContentObjectRenderer62 extends \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
 {
@@ -82,14 +83,14 @@ class ContentObjectRenderer62 extends \TYPO3\CMS\Frontend\ContentObject\ContentO
             $exclude = GeneralUtility::explodeUrl2Array($exclude, true);
             // never repeat id
             $exclude['id'] = 0;
-            $newQueryArray = ArrayUtility::arrayDiffAssocRecursive($currentQueryArray, $exclude);
+            $newQueryArray = GeneralUtility::arrayDiffAssocRecursive($currentQueryArray, $exclude);
         } else {
             $newQueryArray = $currentQueryArray;
         }
         if ($forceOverruleArguments) {
-            \TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule($newQueryArray, $overruleQueryArguments);
+            ArrayUtility::mergeRecursiveWithOverrule($newQueryArray, $overruleQueryArguments);
         } else {
-            \TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule($newQueryArray, $overruleQueryArguments, false);
+            ArrayUtility::mergeRecursiveWithOverrule($newQueryArray, $overruleQueryArguments, false);
         }
         return GeneralUtility::implodeArrayForUrl('', $newQueryArray, '', false, true);
     }
