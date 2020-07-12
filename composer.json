@@ -6,7 +6,7 @@
   "type": "typo3-cms-extension",
   "description": "Adds support for typolink addQueryString to allow to include only specific url vars.",
   "require": {
-    "typo3/cms-core": "~7.6 || ~8.7 || ~9.5"
+    "typo3/cms-core": "~7.6 || ~8.7 || ~9.5 || ~10.4"
   },
   "autoload": {
     "psr-4": {
