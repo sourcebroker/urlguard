@@ -1,7 +1,7 @@
 {
   "name": "sourcebroker/urlguard",
   "license": [
-    "GPL-2.0+"
+    "GPL-2.0-or-later"
   ],
   "type": "typo3-cms-extension",
   "description": "Adds support for typolink addQueryString to allow to include only specific url vars.",
@@ -20,7 +20,7 @@
     }
   ],
   "replace": {
-    "urlguard": "self.version",
+    "sourcebroker/urlguard": "self.version",
     "typo3-ter/urlguard": "self.version"
   },
   "config": {

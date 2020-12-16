@@ -1,6 +1,10 @@
 Changelog
 ---------
 
+master
+~~~~~
+1) Fix composer version validation.
+
 1.0.5
 ~~~~~
 1) Change stability to "stable".
