@@ -1,16 +1,20 @@
 TYPO3 Extension ``urlguard``
 ############################
 
-  .. image:: https://styleci.io/repos/115223812/shield?branch=master
-      :target: https://styleci.io/repos/115223812
-
   .. image:: https://poser.pugx.org/sourcebroker/urlguard/v/stable
       :target: https://packagist.org/packages/sourcebroker/urlguard
 
   .. image:: https://poser.pugx.org/sourcebroker/urlguard/license
       :target: https://packagist.org/packages/sourcebroker/urlguard
 
-.. contents:: :local:
+
+
+This extension will not longer be mainained
+*******************************************
+
+Look for alternative here https://github.com/b13/trusted-url-params (Thanks to Benni Mack from b13 GmbH)
+
+
 
 What does it do?
 ****************
